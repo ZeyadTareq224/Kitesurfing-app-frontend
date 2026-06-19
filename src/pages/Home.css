@@ -37,7 +37,8 @@
 .hero__content {
   position: relative;
   z-index: 2;
-  padding-top: 6rem;
+  padding-top: 6.5rem;
+  /* clears fixed navbar on mobile (~70px logo) */
   padding-bottom: 4rem;
   max-width: 100%;
 }
@@ -140,7 +141,8 @@
 
 @media (min-width: 768px) {
   .hero__content {
-    padding-top: 8rem;
+    padding-top: 8.5rem;
+    /* clears fixed navbar on desktop (~90px logo) */
     padding-bottom: 6rem;
     max-width: 700px;
   }
