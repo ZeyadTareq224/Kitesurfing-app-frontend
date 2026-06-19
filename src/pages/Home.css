@@ -4,6 +4,7 @@
 .hero {
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .hero__bg {
@@ -37,7 +38,7 @@
 .hero__content {
   position: relative;
   z-index: 2;
-  padding-top: 6.5rem;
+  padding-top: 7rem;
   /* clears fixed navbar on mobile (~70px logo) */
   padding-bottom: 4rem;
   max-width: 100%;
@@ -141,8 +142,7 @@
 
 @media (min-width: 768px) {
   .hero__content {
-    padding-top: 8.5rem;
-    /* clears fixed navbar on desktop (~90px logo) */
+    padding-top: 9rem;
     padding-bottom: 6rem;
     max-width: 700px;
   }
