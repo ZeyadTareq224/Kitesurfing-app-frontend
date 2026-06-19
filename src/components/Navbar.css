@@ -1,0 +1,207 @@
+/* ─── Navbar — Mobile-First ────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0.9rem 1rem;
+  background: rgba(15, 30, 45, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background var(--transition-med), box-shadow var(--transition-med), padding var(--transition-med);
+}
+
+.navbar--scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--clr-border), 0 8px 32px rgba(0, 0, 0, 0.07);
+  padding: 0.6rem 1rem;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+  transition: color var(--transition-med);
+}
+
+.navbar--scrolled .navbar__logo {
+  color: var(--clr-text);
+}
+
+.navbar__logo-icon {
+  color: var(--clr-primary);
+  filter: drop-shadow(0 0 8px rgba(0, 220, 255, 0.5));
+}
+
+.navbar__logo-text span {
+  color: var(--clr-primary);
+}
+
+/* Desktop links — hidden on mobile */
+.navbar__links {
+  display: none;
+}
+
+.navbar__cta {
+  display: none;
+}
+
+/* Hamburger — shown on mobile */
+.navbar__hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 0.4rem;
+  border-radius: var(--radius-sm);
+  margin-left: auto;
+  transition: color var(--transition-fast);
+}
+
+.navbar--scrolled .navbar__hamburger {
+  color: var(--clr-text);
+}
+
+.navbar__hamburger:hover {
+  color: var(--clr-primary);
+}
+
+/* Mobile drawer */
+.navbar__mobile {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height var(--transition-slow), opacity var(--transition-med);
+  background: rgba(255, 255, 255, 0.99);
+  border-top: 1px solid var(--clr-border);
+}
+
+.navbar__mobile--open {
+  max-height: 520px;
+  opacity: 1;
+}
+
+.navbar__mobile-link {
+  display: block;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--clr-text-muted);
+  border-bottom: 1px solid var(--clr-border);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.navbar__mobile-link:hover,
+.navbar__mobile-link--active {
+  color: var(--clr-primary);
+  background: rgba(0, 220, 255, 0.05);
+}
+
+.navbar__mobile-btn {
+  margin: 1rem 1.25rem 1.25rem;
+  justify-content: center;
+}
+
+/* ── Tablet+ ── */
+@media (min-width: 768px) {
+  .navbar {
+    padding: 1.1rem 1.5rem;
+  }
+
+  .navbar--scrolled {
+    padding: 0.7rem 1.5rem;
+  }
+
+  .navbar__logo {
+    font-size: 1.35rem;
+  }
+
+  .navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: auto;
+  }
+
+  .navbar__cta {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .navbar__hamburger {
+    display: none;
+  }
+
+  .navbar__mobile {
+    display: none !important;
+  }
+}
+
+/* Desktop link styles */
+.navbar__link {
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  position: relative;
+}
+
+.navbar--scrolled .navbar__link {
+  color: var(--clr-text-muted);
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--clr-primary);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-med);
+}
+
+.navbar__link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar--scrolled .navbar__link:hover {
+  color: var(--clr-text);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.navbar__link--active {
+  color: var(--clr-primary) !important;
+  background: rgba(0, 220, 255, 0.12);
+}
+
+.navbar__link--active::after {
+  width: 50%;
+}
+
+.navbar__btn {
+  padding: 0.55rem 1.3rem;
+  font-size: 0.88rem;
+}
