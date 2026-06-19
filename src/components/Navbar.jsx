@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import logo from '../assets/images/nav_logo.png'
 import './Navbar.css'
 
 const NAV_LINKS = [
@@ -46,7 +47,7 @@ export default function Navbar() {
           aria-label="Kiteboarding OS Home"
         >
           <img
-            src="/assets/images/nav_logo.png"
+            src={logo}
             alt="Old School Kiteboarding"
             className="navbar__logo-img"
           />
