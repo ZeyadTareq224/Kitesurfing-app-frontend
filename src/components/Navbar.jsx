@@ -1,46 +1,63 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { Menu, X, Wind } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import './Navbar.css'
 
 const NAV_LINKS = [
-  { to: '/',         label: 'Home'     },
-  { to: '/about',    label: 'About Us' },
-  { to: '/services', label: 'Camps'    },
-  { to: '/prices',   label: 'Prices'   },
-  { to: '/blog',     label: 'Blog'     },
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About Us' },
+  { to: '/services', label: 'Camps' },
+  { to: '/prices', label: 'Prices' },
+  { to: '/blog', label: 'Blog' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen]         = useState(false)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
+
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mobile menu on resize
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth > 768) setOpen(false) }
+    const onResize = () => {
+      if (window.innerWidth > 768) setOpen(false)
+    }
+
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
   return (
-    <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`} role="banner">
+    <header
+      className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}
+      role="banner"
+    >
+
       <div className="navbar__inner container">
+
         {/* Logo */}
-        <Link to="/" className="navbar__logo" aria-label="Kiteboarding OS Home">
-          <Wind className="navbar__logo-icon" size={26} strokeWidth={2.2} />
-          <span className="navbar__logo-text">
-            Kite<span>OS</span>
-          </span>
+        <Link
+          to="/"
+          className="navbar__logo"
+          aria-label="Kiteboarding OS Home"
+        >
+          <img
+            src="/assets/images/nav_logo.png"
+            alt="Old School Kiteboarding"
+            className="navbar__logo-img"
+          />
         </Link>
 
+
         {/* Desktop links */}
-        <nav className="navbar__links" aria-label="Main navigation">
+        <nav
+          className="navbar__links"
+          aria-label="Main navigation"
+        >
           {NAV_LINKS.map(({ to, label }) => (
             <NavLink
               key={to}
@@ -55,20 +72,23 @@ export default function Navbar() {
           ))}
         </nav>
 
+
         {/* CTA */}
         <div className="navbar__cta">
+
           <a
             href="https://buy.stripe.com/8wMaIq6N05ExbscdQQ"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn--primary navbar__btn"
-            id="navbar-whatsapp-cta"
           >
             Book Now
           </a>
+
         </div>
 
-        {/* Mobile hamburger */}
+
+        {/* Mobile menu */}
         <button
           className="navbar__hamburger"
           aria-label={open ? 'Close menu' : 'Open menu'}
@@ -76,18 +96,29 @@ export default function Navbar() {
           aria-controls="mobile-menu"
           onClick={() => setOpen(v => !v)}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open
+            ? <X size={24} />
+            : <Menu size={24} />
+          }
+
         </button>
+
       </div>
 
+
+
       {/* Mobile drawer */}
+
       <div
         id="mobile-menu"
         className={`navbar__mobile${open ? ' navbar__mobile--open' : ''}`}
         aria-hidden={!open}
       >
+
         <nav aria-label="Mobile navigation">
+
           {NAV_LINKS.map(({ to, label }) => (
+
             <NavLink
               key={to}
               to={to}
@@ -99,7 +130,10 @@ export default function Navbar() {
             >
               {label}
             </NavLink>
+
           ))}
+
+
           <a
             href="https://buy.stripe.com/8wMaIq6N05ExbscdQQ"
             target="_blank"
@@ -107,10 +141,15 @@ export default function Navbar() {
             className="btn btn--primary navbar__mobile-btn"
             onClick={() => setOpen(false)}
           >
-            Book Now via WhatsApp
+            Book Now
           </a>
+
+
         </nav>
+
       </div>
+
+
     </header>
   )
 }
