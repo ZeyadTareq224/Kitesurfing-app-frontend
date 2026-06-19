@@ -7,7 +7,7 @@
   right: 0;
   z-index: 1000;
 
-  padding: 0.7rem 1rem;
+  padding: 0.3rem 1rem;
 
   background: rgba(15, 30, 45, 0.55);
 
@@ -21,7 +21,6 @@
 }
 
 
-
 .navbar--scrolled {
 
   background: rgba(255, 255, 255, 0.97);
@@ -32,11 +31,13 @@
     0 1px 0 var(--clr-border),
     0 8px 32px rgba(0, 0, 0, .07);
 
-  padding: 0.45rem 1rem;
+  padding: 0.15rem 1rem;
 
 }
 
 
+
+/* Inner */
 
 .navbar__inner {
 
@@ -66,11 +67,13 @@
 
 .navbar__logo-img {
 
-  height: 65px;
+  height: 90px;
 
   width: auto;
 
   object-fit: contain;
+
+  filter: drop-shadow(0 0 8px rgba(0, 220, 255, .35));
 
   transition:
     transform var(--transition-med),
@@ -90,7 +93,7 @@
 
 .navbar--scrolled .navbar__logo-img {
 
-  height: 48px;
+  height: 65px;
 
 }
 
@@ -144,15 +147,7 @@
 
 
 
-.navbar__hamburger:hover {
-
-  color: var(--clr-primary);
-
-}
-
-
-
-/* Mobile */
+/* Mobile drawer */
 
 .navbar__mobile {
 
@@ -186,40 +181,6 @@
 
 
 
-.navbar__mobile-link {
-
-  display: block;
-
-  padding: 1rem 1.25rem;
-
-  color: var(--clr-text-muted);
-
-  border-bottom: 1px solid var(--clr-border);
-
-}
-
-
-
-.navbar__mobile-link--active {
-
-  color: var(--clr-primary);
-
-}
-
-
-
-.navbar__mobile-btn {
-
-  margin: 1rem;
-
-  justify-content: center;
-
-}
-
-
-
-
-
 /* Desktop */
 
 @media(min-width:768px) {
@@ -227,14 +188,14 @@
 
   .navbar {
 
-    padding: 1rem 1.5rem;
+    padding: 0.25rem 1.5rem;
 
   }
 
 
   .navbar--scrolled {
 
-    padding: .5rem 1.5rem;
+    padding: 0.1rem 1.5rem;
 
   }
 
@@ -277,78 +238,28 @@
   }
 
 
-
 }
 
 
 
-/* Links */
-
-.navbar__link {
-
-  padding: .45rem .9rem;
-
-  border-radius: var(--radius-full);
-
-  font-size: .9rem;
-
-  font-weight: 500;
-
-  color: rgba(255, 255, 255, .85);
-
-}
-
-
-
-.navbar--scrolled .navbar__link {
-
-  color: var(--clr-text-muted);
-
-}
-
-
-
-.navbar__link:hover {
-
-  color: white;
-
-}
-
-
-
-.navbar--scrolled .navbar__link:hover {
-
-  color: var(--clr-text);
-
-}
-
-
-
-.navbar__link--active {
-
-  color: var(--clr-primary) !important;
-
-}
-
-
-
-
-
-/* Mobile logo sizing */
+/* Mobile */
 
 @media(max-width:767px) {
 
+
   .navbar__logo-img {
 
-    height: 52px;
+    height: 70px;
 
   }
+
 
 
   .navbar--scrolled .navbar__logo-img {
 
-    height: 42px;
+    height: 55px;
 
   }
+
 
 }
